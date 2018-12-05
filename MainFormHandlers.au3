@@ -321,10 +321,40 @@ Func MainForm_Resize()
     _GUICtrlStatusBar_Resize($StatusBar1)
 EndFunc
 
+Global $MainForm_Status_Message_1 = ""
+Global $MainForm_Status_Message_2 = ""
+Global $MainForm_WinTitleX = ""
 
 Func StatusBar_SetText($Message, $Part=1)
     _GUICtrlStatusBar_SetText($StatusBar1, $Message, $Part)
     StatusBar_SetShellIcon(1)
+
+    if ($Part <= 2) Or ($MainForm_WinTitleX == "") Then
+        Switch $Part
+            Case 1
+                $MainForm_Status_Message_1 = $Message
+            Case 2
+                $MainForm_Status_Message_2 = $Message
+        EndSwitch
+    
+        ;Pythonic:  $MainForm_WinTitleX = ' - '.join([Status1, Status2, Input4X)]
+        Local $Input4X = StringStripWS(GUICtrlRead($Input4), 1+2) ; "1+2" = strip leading/trailing space
+        Local $StatusX = $MainForm_Status_Message_1
+        If ($StatusX <> "") And ($MainForm_Status_Message_2 <> "") Then
+            $StatusX &= ' - '
+        EndIf
+        $StatusX &= $MainForm_Status_Message_2  
+        If ($StatusX <> "") And ($Input4X <> "") Then
+            $StatusX &= ' - '
+        EndIf
+        $StatusX &= $Input4X
+        If $StatusX == "" Then
+            $StatusX = 'Corgi'
+        EndIf
+        WinSetTitle($MainForm, "", $StatusX)
+        $MainForm_WinTitleX = $StatusX
+    EndIf
+
 EndFunc
 
 ;

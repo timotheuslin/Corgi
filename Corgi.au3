@@ -16,11 +16,11 @@
 
 #cs ----------------------------------------------------------------------------
 
-	AutoIt Version: 3.3.1.1 beta (minimal required version)
-	Author:         timothy
+    AutoIt Version: 3.3.1.1 beta (minimal required version)
+    Author:         timothy
 
-	Script Function:
-	Template AutoIt script.
+    Script Function:
+    Template AutoIt script.
 
 #ce ----------------------------------------------------------------------------
 
@@ -93,12 +93,12 @@ HotKeySet("!x")
 HotKeySet("{F10}")
 HotKeySet("!{F4}")
 Global $HotkeyFuncList[5][2] = [ _
-		["{F7}", $DummyControlForF7], _
-		["{Pause}", $ButtonPause], _
-		["!x", $DummyControlForExit], _
-		["{F10}", $DummyControlForExit], _
-		["!{F4}", $DummyControlForExit] _
-		]
+        ["{F7}", $DummyControlForF7], _
+        ["{Pause}", $ButtonPause], _
+        ["!x", $DummyControlForExit], _
+        ["{F10}", $DummyControlForExit], _
+        ["!{F4}", $DummyControlForExit] _
+        ]
 GUISetAccelerators($HotkeyFuncList, $MainForm)
 GUICtrlSetState($Group1, $GUI_DROPACCEPTED)
 GUICtrlSetState($Group2, $GUI_DROPACCEPTED)
@@ -109,7 +109,7 @@ GUISetOnEvent($GUI_EVENT_DROPPED, "_DropFile")
 
 Local $ComboTask_List = $GlobalTaskSectionName[0]
 For $i = 1 To $GlobalTaskAmount - 1
-	$ComboTask_List &= "|" & $GlobalTaskSectionName[$i]
+    $ComboTask_List &= "|" & $GlobalTaskSectionName[$i]
 Next
 GUICtrlSetData($ComboTask, $ComboTask_List)
 
@@ -147,16 +147,16 @@ GUICtrlSetData($ComboTask, $ComboTask_List)
 
 Local $UseHomeSetting = True
 If FileExists($OriginalGlobalIni) Then
-	$UseHomeSetting = IniRead($OriginalGlobalIni, $GlobalSectionString, $OriginalGlobalIni, False)
+    $UseHomeSetting = IniRead($OriginalGlobalIni, $GlobalSectionString, $OriginalGlobalIni, False)
 Else
-	$UseHomeSetting = True
+    $UseHomeSetting = True
 EndIf
 
 If $UseHomeSetting Then
-	$GlobalIni = $HomeIni
-	If Not FileExists($CorgiHomePath) Then
-		DirCreate($CorgiHomePath) ; TODO: should we ignore error silently?
-	EndIf
+    $GlobalIni = $HomeIni
+    If Not FileExists($CorgiHomePath) Then
+        DirCreate($CorgiHomePath) ; TODO: should we ignore error silently?
+    EndIf
 EndIf
 
 Local $TaskId = IniRead($GlobalIni, $GlobalSectionString, $TaskIdString, 0)
@@ -174,9 +174,9 @@ FolderJanitor(@TempDir & "\Corgi\", "*.bat", 100)
 FolderJanitor(@TempDir & "\Corgi\", "*.ini", 100)
 
 While 1
-	Sleep(47)
-	;$msg = GUIGetMsg()
-	;If $msg == $GUI_EVENT_CLOSE Then ExitLoop
+    Sleep(47)
+    ;$msg = GUIGetMsg()
+    ;If $msg == $GUI_EVENT_CLOSE Then ExitLoop
 WEnd
 
 _Exit()
@@ -185,152 +185,152 @@ _Exit()
 ;----------------------------------------------------------------------------
 
 Func _Exit()
-	CoProcess_Stop(True)
-	IniUpdateAll()
-	Exit
+    CoProcess_Stop(True)
+    IniUpdateAll()
+    Exit
 EndFunc   ;==>_Exit
 
 Func _DropFile()
-	If @GUI_DragFile <> "" Then
-		__ImportConfigFile(@GUI_DragFile)
-	EndIf
+    If @GUI_DragFile <> "" Then
+        __ImportConfigFile(@GUI_DragFile)
+    EndIf
 EndFunc   ;==>_DropFile
 
 Func __ImportConfigFile($INI)
 
-	Local $TaskId = IniRead($INI, $GlobalSectionString, $TaskIdString, -1)
-	If $TaskId == -1 Then
-		MsgBox(48, "Ouch", "Not a Config File: " & $INI)
-		Return
-	EndIf
+    Local $TaskId = IniRead($INI, $GlobalSectionString, $TaskIdString, -1)
+    If $TaskId == -1 Then
+        MsgBox(48, "Ouch", "Not a Config File: " & $INI)
+        Return
+    EndIf
 
-	IniUpdateAll()
+    IniUpdateAll()
 
-	$GlobalTaskId = $TaskId
+    $GlobalTaskId = $TaskId
 
-	MainForm_Init($INI, $TaskId)
+    MainForm_Init($INI, $TaskId)
 
-	Local $szDrive, $szDir, $szFName, $szExt
-	_PathSplit($INI, $szDrive, $szDir, $szFName, $szExt)
-	Local $TitleX = WinGetTitle($MainForm) & " (" & $szFName & $szExt & ")"
-	WinSetTitle($MainForm, "", $TitleX)
+    Local $szDrive, $szDir, $szFName, $szExt
+    _PathSplit($INI, $szDrive, $szDir, $szFName, $szExt)
+    Local $TitleX = WinGetTitle($MainForm) & " (" & $szFName & $szExt & ")"
+    WinSetTitle($MainForm, "", $TitleX)
 
 EndFunc   ;==>__ImportConfigFile
 
 
 Func MainForm_Init($INI = $GlobalIni, $TaskId = -1)
 
-	GUICtrlSetOnEvent($ComboTask, "ComboTaskFunc")
-	GUICtrlSetOnEvent($ButtonStart, "ButtonStartFunc")
-	GUICtrlSetOnEvent($ButtonPause, "ButtonPauseFunc")
-	GUICtrlSetOnEvent($ButtonStop, "ButtonStopFunc")
-	GUICtrlSetOnEvent($ButtonCleanUp, "ButtonCleanUpFunc")
-	GUICtrlSetOnEvent($ButtonRebuild, "ButtonRebuildFunc")
+    GUICtrlSetOnEvent($ComboTask, "ComboTaskFunc")
+    GUICtrlSetOnEvent($ButtonStart, "ButtonStartFunc")
+    GUICtrlSetOnEvent($ButtonPause, "ButtonPauseFunc")
+    GUICtrlSetOnEvent($ButtonStop, "ButtonStopFunc")
+    GUICtrlSetOnEvent($ButtonCleanUp, "ButtonCleanUpFunc")
+    GUICtrlSetOnEvent($ButtonRebuild, "ButtonRebuildFunc")
 
-	GUICtrlSetStyle($ButtonStart, BitOR($BS_ICON, $BS_FLAT, $WS_GROUP))
-	GUICtrlSetStyle($ButtonPause, BitOR($BS_ICON, $BS_FLAT, $WS_GROUP))
-	GUICtrlSetStyle($ButtonStop, BitOR($BS_ICON, $BS_FLAT, $WS_GROUP))
-	GUICtrlSetStyle($ButtonCleanUp, BitOR($BS_ICON, $BS_FLAT, $WS_GROUP))
-	GUICtrlSetStyle($ButtonRebuild, BitOR($BS_ICON, $BS_FLAT, $WS_GROUP))
+    GUICtrlSetStyle($ButtonStart, BitOR($BS_ICON, $BS_FLAT, $WS_GROUP))
+    GUICtrlSetStyle($ButtonPause, BitOR($BS_ICON, $BS_FLAT, $WS_GROUP))
+    GUICtrlSetStyle($ButtonStop, BitOR($BS_ICON, $BS_FLAT, $WS_GROUP))
+    GUICtrlSetStyle($ButtonCleanUp, BitOR($BS_ICON, $BS_FLAT, $WS_GROUP))
+    GUICtrlSetStyle($ButtonRebuild, BitOR($BS_ICON, $BS_FLAT, $WS_GROUP))
 
-	Local $ComboToolChain_List = $Global_ToolChains[0]
-	For $i = 1 To UBound($Global_ToolChains) - 1
-		$ComboToolChain_List &= "|" & $Global_ToolChains[$i]
-	Next
-	GUICtrlSetData($ComboToolChain, $ComboToolChain_List)
+    Local $ComboToolChain_List = $Global_ToolChains[0]
+    For $i = 1 To UBound($Global_ToolChains) - 1
+        $ComboToolChain_List &= "|" & $Global_ToolChains[$i]
+    Next
+    GUICtrlSetData($ComboToolChain, $ComboToolChain_List)
 
-	If $TaskId == -1 Then
-		$TaskId = IniRead($INI, $GlobalSectionString, $TaskIdString, 0)
-	EndIf
+    If $TaskId == -1 Then
+        $TaskId = IniRead($INI, $GlobalSectionString, $TaskIdString, 0)
+    EndIf
 
-	$Global_CorgiEditor = IniRead($INI, $GlobalSectionString, $ExternalEditorString, $CorgiEditorDefault)
-	If Not FileExists($Global_CorgiEditor) Then
-		$Global_CorgiEditor = $CorgiEditorDefault
-	EndIf
-	$Global_ToolChains_Id = IniRead($INI, $GlobalSectionString, $Global_ToolChains, 0)
+    $Global_CorgiEditor = IniRead($INI, $GlobalSectionString, $ExternalEditorString, $CorgiEditorDefault)
+    If Not FileExists($Global_CorgiEditor) Then
+        $Global_CorgiEditor = $CorgiEditorDefault
+    EndIf
+    $Global_ToolChains_Id = IniRead($INI, $GlobalSectionString, $Global_ToolChains, 0)
 
-	BW_INIT($INI)
-	BW_Load($INI, $TaskId)
+    BW_INIT($INI)
+    BW_Load($INI, $TaskId)
 
-	Local $TaskCaption
-	_GUICtrlComboBox_SetCurSel($ComboTask, $GlobalTaskId)
-	_GUICtrlComboBox_GetLBText($ComboTask, $GlobalTaskId, $TaskCaption)
+    ;Local $TaskCaption
+    _GUICtrlComboBox_SetCurSel($ComboTask, $GlobalTaskId)
+    ;_GUICtrlComboBox_GetLBText($ComboTask, $GlobalTaskId, $TaskCaption)
 
-	_GUICtrlComboBox_SetCurSel($ComboToolChain, $Global_ToolChains_Id)
+    _GUICtrlComboBox_SetCurSel($ComboToolChain, $Global_ToolChains_Id)
 
-	WinSetTitle($MainForm, "", "Corgi : " & $TaskCaption)
+    ;WinSetTitle($MainForm, "", "Corgi")
 
-	Console_Init($INI)
+    Console_Init($INI)
 
-	Call($TtMfInit[$TaskId], $INI)
+    Call($TtMfInit[$TaskId], $INI)
 EndFunc   ;==>MainForm_Init
 
 
 Func IniUpdateAll($INI = $GlobalIni)
-	AutoItSetOption("ExpandEnvStrings", 0) ; 0.7d
+    AutoItSetOption("ExpandEnvStrings", 0) ; 0.7d
 
-	Call($TtIniUpdata[$GlobalTaskId], $INI)
+    Call($TtIniUpdata[$GlobalTaskId], $INI)
 
-	BW_IniUpdate($INI)
-	Console_IniUpdate($INI)
+    BW_IniUpdate($INI)
+    Console_IniUpdate($INI)
 
-	IniUpdate($INI, $GlobalSectionString, $TaskIdString, $GlobalTaskId)
-	IniUpdate($INI, $GlobalSectionString, $ExternalEditorString, $Global_CorgiEditor)
-	$Global_ToolChains_Id = _GUICtrlComboBox_GetCurSel($ComboToolChain)
-	IniUpdate($INI, $GlobalSectionString, $Global_ToolChains, $Global_ToolChains_Id)
+    IniUpdate($INI, $GlobalSectionString, $TaskIdString, $GlobalTaskId)
+    IniUpdate($INI, $GlobalSectionString, $ExternalEditorString, $Global_CorgiEditor)
+    $Global_ToolChains_Id = _GUICtrlComboBox_GetCurSel($ComboToolChain)
+    IniUpdate($INI, $GlobalSectionString, $Global_ToolChains, $Global_ToolChains_Id)
 
 EndFunc   ;==>IniUpdateAll
 
 
 Func F7KeyFunc()
-	If (BitAND(GUICtrlGetState($ButtonStart), $GUI_ENABLE)) Then
-		ButtonStartFunc()
-	Else
-		ButtonPauseFunc()
-	EndIf
+    If (BitAND(GUICtrlGetState($ButtonStart), $GUI_ENABLE)) Then
+        ButtonStartFunc()
+    Else
+        ButtonPauseFunc()
+    EndIf
 EndFunc   ;==>F7KeyFunc
 
 Func StartCleanUpRebuildCommon($Cmd, $ExtParams = "")
 
-	$TaskCommand = $Cmd
+    $TaskCommand = $Cmd
 
-	TConsoleCleanup()
-	InitBatchCommandList()
+    TConsoleCleanup()
+    InitBatchCommandList()
 
-	Local $TaskName = $GlobalTaskSectionName[$GlobalTaskId]
+    Local $TaskName = $GlobalTaskSectionName[$GlobalTaskId]
 
-	;Local $TaskNames = StringRegExp($TaskName, "\S+\s*-\s*(.*)", 3)
-	;MsgBox(0, "", $GlobalTaskSectionName[$GlobalTaskId])
-	;MsgBox(0, "", $TaskNames[0])
-	;$TaskName = StringSplit($GlobalTaskSectionName[$GlobalTaskId], " - ", 1)
+    ;Local $TaskNames = StringRegExp($TaskName, "\S+\s*-\s*(.*)", 3)
+    ;MsgBox(0, "", $GlobalTaskSectionName[$GlobalTaskId])
+    ;MsgBox(0, "", $TaskNames[0])
+    ;$TaskName = StringSplit($GlobalTaskSectionName[$GlobalTaskId], " - ", 1)
 
-	;If (NOT @Error) AND IsArray($TaskNames) Then
-	;   $TaskName = $TaskNames[0]
-	;EndIf
+    ;If (NOT @Error) AND IsArray($TaskNames) Then
+    ;   $TaskName = $TaskNames[0]
+    ;EndIf
 
-	StatusBar_SetText($TaskName & " : " & $Cmd)
-	StatusBar_SetText("Running", 2)
-	SetGlobalVariables(True)
+    StatusBar_SetText($TaskName & " : " & $Cmd)
+    StatusBar_SetText("Running", 2)
+    SetGlobalVariables(True)
 
-	TConsoleWrite(DateTime_GetCurrentDateTime() & @CRLF)
+    TConsoleWrite(DateTime_GetCurrentDateTime() & @CRLF)
 
-	;
-	; $CmdList[0] = Array Size
-	; $CmdList[1] = Console Message to be sent before execution
-	; $CmdList[2] = Command
-	; $CmdList[3] = Working Directory
-	Local $CmdList = Call($TtScrTasks[$GlobalTaskId], $Cmd, $ExtParams)
-	If (Not IsArray($CmdList)) Or ($CmdList[0] == 0) Then
-		Return
-	EndIf
+    ;
+    ; $CmdList[0] = Array Size
+    ; $CmdList[1] = Console Message to be sent before execution
+    ; $CmdList[2] = Command
+    ; $CmdList[3] = Working Directory
+    Local $CmdList = Call($TtScrTasks[$GlobalTaskId], $Cmd, $ExtParams)
+    If (Not IsArray($CmdList)) Or ($CmdList[0] == 0) Then
+        Return
+    EndIf
 
-	If ($CmdList[0] > 0) And ($CmdList[1] <> "") Then
-		TConsoleWrite($CmdList[1])
-	EndIf
+    If ($CmdList[0] > 0) And ($CmdList[1] <> "") Then
+        TConsoleWrite($CmdList[1])
+    EndIf
 
-	If ($CmdList[0] >= 3) Then
-		CoProcess_Execution($CmdList[2], $CmdList[3])
-	EndIf
+    If ($CmdList[0] >= 3) Then
+        CoProcess_Execution($CmdList[2], $CmdList[3])
+    EndIf
 EndFunc   ;==>StartCleanUpRebuildCommon
 
 ;
@@ -339,10 +339,10 @@ EndFunc   ;==>StartCleanUpRebuildCommon
 
 Func ButtonStartFunc()
 
-	If (BitAND(GUICtrlGetState($ButtonStart), $GUI_ENABLE) == 0) Then
-		Return
-	EndIf
-	StartCleanUpRebuildCommon($BuildString)
+    If (BitAND(GUICtrlGetState($ButtonStart), $GUI_ENABLE) == 0) Then
+        Return
+    EndIf
+    StartCleanUpRebuildCommon($BuildString)
 
 EndFunc   ;==>ButtonStartFunc
 
@@ -351,34 +351,34 @@ EndFunc   ;==>ButtonStartFunc
 ;
 
 Func SetButtonPauseState($PauseFlag)
-	If $PauseFlag == False Then
-		$PauseFlag = True
-		GUICtrlSetData($ButtonPause, $ResumeString)
-		GUICtrlSetTip($ButtonPause, $ResumeString)
-		StatusBar_SetText("Paused", 2)
-		GUICtrlSetImage($ButtonPause, @ScriptFullPath, -9, 1) ; "play.ico"
-		_GUICtrlMenu_SetItemText($hAction, $idPause, $MenuActionResumeString, False)
-	Else
-		$PauseFlag = False
-		GUICtrlSetData($ButtonPause, $PauseString)
-		GUICtrlSetTip($ButtonPause, $PauseString)
-		StatusBar_SetText("Running", 2)
-		GUICtrlSetImage($ButtonPause, @ScriptFullPath, -8, 1) ; "pause.ico"
-		_GUICtrlMenu_SetItemText($hAction, $idPause, $MenuActionPauseString, False)
-	EndIf
+    If $PauseFlag == False Then
+        $PauseFlag = True
+        GUICtrlSetData($ButtonPause, $ResumeString)
+        GUICtrlSetTip($ButtonPause, $ResumeString)
+        StatusBar_SetText("Paused", 2)
+        GUICtrlSetImage($ButtonPause, @ScriptFullPath, -9, 1) ; "play.ico"
+        _GUICtrlMenu_SetItemText($hAction, $idPause, $MenuActionResumeString, False)
+    Else
+        $PauseFlag = False
+        GUICtrlSetData($ButtonPause, $PauseString)
+        GUICtrlSetTip($ButtonPause, $PauseString)
+        StatusBar_SetText("Running", 2)
+        GUICtrlSetImage($ButtonPause, @ScriptFullPath, -8, 1) ; "pause.ico"
+        _GUICtrlMenu_SetItemText($hAction, $idPause, $MenuActionPauseString, False)
+    EndIf
 
-	Return $PauseFlag
+    Return $PauseFlag
 EndFunc   ;==>SetButtonPauseState
 
 Func ButtonPauseFunc()
-	If (BitAND(GUICtrlGetState($ButtonPause), $GUI_ENABLE) == 0) Then
-		Return
-	EndIf
+    If (BitAND(GUICtrlGetState($ButtonPause), $GUI_ENABLE) == 0) Then
+        Return
+    EndIf
 
-	$GlobalPauseFlag = SetButtonPauseState($GlobalPauseFlag)
+    $GlobalPauseFlag = SetButtonPauseState($GlobalPauseFlag)
 
-	CoProcess_Pause($GlobalPauseFlag)
-	Console_SetFocus()
+    CoProcess_Pause($GlobalPauseFlag)
+    Console_SetFocus()
 EndFunc   ;==>ButtonPauseFunc
 
 ;
@@ -386,11 +386,11 @@ EndFunc   ;==>ButtonPauseFunc
 ;
 
 Func ButtonStopFunc()
-	TConsoleWrite(@CRLF & $ConsoleCancelString & $CRLFx2)
-	CoProcess_Stop()
-	StatusBar_SetText("Idle", 2)
-	Console_SetFocus()
-	SetButtonPauseState(True)
+    TConsoleWrite(@CRLF & $ConsoleCancelString & $CRLFx2)
+    CoProcess_Stop()
+    StatusBar_SetText("Idle", 2)
+    Console_SetFocus()
+    SetButtonPauseState(True)
 EndFunc   ;==>ButtonStopFunc
 
 ;
@@ -398,10 +398,10 @@ EndFunc   ;==>ButtonStopFunc
 ;
 
 Func ButtonCleanUpFunc()
-	If (BitAND(GUICtrlGetState($ButtonCleanUp), $GUI_ENABLE) == 0) Then
-		Return
-	EndIf
-	StartCleanUpRebuildCommon($CleanString)
+    If (BitAND(GUICtrlGetState($ButtonCleanUp), $GUI_ENABLE) == 0) Then
+        Return
+    EndIf
+    StartCleanUpRebuildCommon($CleanString)
 EndFunc   ;==>ButtonCleanUpFunc
 
 ;
@@ -409,10 +409,10 @@ EndFunc   ;==>ButtonCleanUpFunc
 ;
 
 Func ButtonRebuildFunc()
-	If (BitAND(GUICtrlGetState($ButtonRebuild), $GUI_ENABLE) == 0) Then
-		Return
-	EndIf
-	StartCleanUpRebuildCommon($RebuildString)
+    If (BitAND(GUICtrlGetState($ButtonRebuild), $GUI_ENABLE) == 0) Then
+        Return
+    EndIf
+    StartCleanUpRebuildCommon($RebuildString)
 EndFunc   ;==>ButtonRebuildFunc
 
 ;
@@ -420,24 +420,24 @@ EndFunc   ;==>ButtonRebuildFunc
 ;
 
 Func ComboTaskFunc()
-	Local $TaskId = _GUICtrlComboBox_GetCurSel($ComboTask)
+    Local $TaskId = _GUICtrlComboBox_GetCurSel($ComboTask)
 
-	If $GlobalTaskId <> $TaskId Then
-		IniUpdateAll()
-		$GlobalTaskId = $TaskId
-		MainForm_Init($GlobalIni, $TaskId)
-	EndIf
+    If $GlobalTaskId <> $TaskId Then
+        IniUpdateAll()
+        $GlobalTaskId = $TaskId
+        MainForm_Init($GlobalIni, $TaskId)
+    EndIf
 EndFunc   ;==>ComboTaskFunc
 
 
 Func SetGlobalVariables($WarningOnMissedPath = False)
-	AutoItSetOption("ExpandEnvStrings", 1)
+    AutoItSetOption("ExpandEnvStrings", 1)
 
-	Call($TtSetVar[$GlobalTaskId], False)
+    Call($TtSetVar[$GlobalTaskId], False)
 
-	Local $EnvVars = GUICtrlRead($Edit1)
-	TEnvSet($EnvVars)
+    Local $EnvVars = GUICtrlRead($Edit1)
+    TEnvSet($EnvVars)
 
-	AutoItSetOption("ExpandEnvStrings", 0)
+    AutoItSetOption("ExpandEnvStrings", 0)
 
 EndFunc   ;==>SetGlobalVariables
