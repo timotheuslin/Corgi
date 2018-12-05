@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<object type="TAForm" name="AboutForm1">
+	<properties>
+		<property name="Left" vt="Int16">433</property>
+		<property name="Top" vt="Int16">193</property>
+		<property name="Width" vt="Int16">230</property>
+		<property name="Height" vt="Int16">492</property>
+		<property name="Caption" vt="String">About Corgi</property>
+		<property name="Color" vt="Ident">clWhite</property>
+		<property name="Font.Charset" vt="Ident">DEFAULT_CHARSET</property>
+		<property name="Font.Color" vt="Ident">clWindowText</property>
+		<property name="Font.Height" vt="Int8">-11</property>
+		<property name="Font.Name" vt="String">MS Sans Serif</property>
+		<property name="Font.Style" vt="Set"/>
+		<property name="OldCreateOrder" vt="False">False</property>
+		<property name="Visible" vt="True">True</property>
+		<property name="Style" vt="Int32">348913664</property>
+		<property name="ExStyle" vt="Int16">256</property>
+		<property name="Version" vt="String">1.04</property>
+		<property name="FormOptOnEvent" vt="False">False</property>
+		<property name="FormOptExpVars" vt="False">False</property>
+		<property name="FormOptPopulate" vt="False">False</property>
+		<property name="FormOptVarsForSet" vt="False">False</property>
+		<property name="FormOptIndentChar" vt="Int8">0</property>
+		<property name="FormOptIndentCount" vt="Int8">1</property>
+		<property name="FormOptIndentInit" vt="Int8">0</property>
+		<property name="FormOptVarScope" vt="Int8">0</property>
+		<property name="Resizing" vt="Set"/>
+		<property name="PixelsPerInch" vt="Int8">96</property>
+		<property name="TextHeight" vt="Int8">13</property>
+	</properties>
+	<components>
+		<object type="TAGroup" name="AboutGroup1">
+			<properties>
+				<property name="Left" vt="Int8">4</property>
+				<property name="Top" vt="Int8">0</property>
+				<property name="Width" vt="Int16">205</property>
+				<property name="Height" vt="Int16">377</property>
+				<property name="CtrlStyle" vt="Int32">1342308359</property>
+				<property name="CtrlExStyle" vt="Int8">0</property>
+				<property name="TabOrder" vt="Int8">0</property>
+				<property name="Resizing" vt="Set"/>
+			</properties>
+			<components>
+				<object type="TAPic" name="AboutPic1">
+					<properties>
+						<property name="Left" vt="Int8">12</property>
+						<property name="Top" vt="Int8">16</property>
+						<property name="Width" vt="Int16">182</property>
+						<property name="Height" vt="Int16">200</property>
+						<property name="CtrlStyle" vt="Int32">1342308622</property>
+						<property name="CtrlExStyle" vt="Int8">0</property>
+						<property name="PicturePath" vt="String">D:\studio0\Autoit\Corgi2\Icons\Welsh_Corgi_256x256.jpg</property>
+						<property name="TabOrder" vt="Int8">0</property>
+						<property name="Resizing" vt="Set">DockLeft, DockRight, DockTop, DockWidth, DockHeight</property>
+						<property name="Stretch" vt="Ident">sProportional</property>
+					</properties>
+					<components/>
+				</object>
+				<object type="TALabel" name="AboutLabel2">
+					<properties>
+						<property name="Left" vt="Int8">8</property>
+						<property name="Top" vt="Int16">260</property>
+						<property name="Width" vt="Int16">179</property>
+						<property name="Height" vt="Int8">16</property>
+						<property name="Caption" vt="String">Original Idea: Simon Yang</property>
+						<property name="Font.Charset" vt="Ident">ANSI_CHARSET</property>
+						<property name="Font.Color" vt="Ident">clWindowText</property>
+						<property name="Font.Height" vt="Int8">-12</property>
+						<property name="Font.Name" vt="String">Lucida Console</property>
+						<property name="Font.Style" vt="Set"/>
+						<property name="ParentFont" vt="False">False</property>
+						<property name="TabOrder" vt="Int8">1</property>
+						<property name="HaveVariable" vt="False">False</property>
+						<property name="CtrlStyle" vt="Int32">1342308608</property>
+						<property name="CtrlExStyle" vt="Int8">0</property>
+						<property name="Resizing" vt="Set"/>
+					</properties>
+					<components/>
+				</object>
+				<object type="TALabel" name="AboutLabel3">
+					<properties>
+						<property name="Left" vt="Int8">8</property>
+						<property name="Top" vt="Int16">288</property>
+						<property name="Width" vt="Int16">165</property>
+						<property name="Height" vt="Int8">16</property>
+						<property name="Caption" vt="String">GUI Design: Timothy Lin</property>
+						<property name="Font.Charset" vt="Ident">ANSI_CHARSET</property>
+						<property name="Font.Color" vt="Ident">clWindowText</property>
+						<property name="Font.Height" vt="Int8">-12</property>
+						<property name="Font.Name" vt="String">Lucida Console</property>
+						<property name="Font.Style" vt="Set"/>
+						<property name="ParentFont" vt="False">False</property>
+						<property name="TabOrder" vt="Int8">2</property>
+						<property name="HaveVariable" vt="False">False</property>
+						<property name="CtrlStyle" vt="Int32">1342308608</property>
+						<property name="CtrlExStyle" vt="Int8">0</property>
+						<property name="Resizing" vt="Set"/>
+					</properties>
+					<components/>
+				</object>
+				<object type="TALabel" name="AboutLabel4">
+					<properties>
+						<property name="Left" vt="Int8">8</property>
+						<property name="Top" vt="Int16">316</property>
+						<property name="Width" vt="Int16">186</property>
+						<property name="Height" vt="Int8">16</property>
+						<property name="Caption" vt="String">Consultant: Harrison Hsieh</property>
+						<property name="Font.Charset" vt="Ident">ANSI_CHARSET</property>
+						<property name="Font.Color" vt="Ident">clWindowText</property>
+						<property name="Font.Height" vt="Int8">-12</property>
+						<property name="Font.Name" vt="String">Lucida Console</property>
+						<property name="Font.Style" vt="Set"/>
+						<property name="ParentFont" vt="False">False</property>
+						<property name="TabOrder" vt="Int8">3</property>
+						<property name="HaveVariable" vt="False">False</property>
+						<property name="CtrlStyle" vt="Int32">1342308608</property>
+						<property name="CtrlExStyle" vt="Int8">0</property>
+						<property name="Resizing" vt="Set"/>
+					</properties>
+					<components/>
+				</object>
+				<object type="TALabel" name="AboutLabel5">
+					<properties>
+						<property name="Left" vt="Int8">8</property>
+						<property name="Top" vt="Int16">344</property>
+						<property name="Width" vt="Int16">130</property>
+						<property name="Height" vt="Int8">16</property>
+						<property name="Caption" vt="String">@Phoenix, May/2009</property>
+						<property name="Font.Charset" vt="Ident">ANSI_CHARSET</property>
+						<property name="Font.Color" vt="Ident">clWindowText</property>
+						<property name="Font.Height" vt="Int8">-12</property>
+						<property name="Font.Name" vt="String">Lucida Console</property>
+						<property name="Font.Style" vt="Set"/>
+						<property name="ParentFont" vt="False">False</property>
+						<property name="TabOrder" vt="Int8">4</property>
+						<property name="HaveVariable" vt="False">False</property>
+						<property name="CtrlStyle" vt="Int32">1342308608</property>
+						<property name="CtrlExStyle" vt="Int8">0</property>
+						<property name="Resizing" vt="Set"/>
+					</properties>
+					<components/>
+				</object>
+				<object type="TALabel" name="AboutLabel1">
+					<properties>
+						<property name="Left" vt="Int8">58</property>
+						<property name="Top" vt="Int16">232</property>
+						<property name="Width" vt="Int8">116</property>
+						<property name="Height" vt="Int8">16</property>
+						<property name="Caption" vt="String">- Version 0.8.6a</property>
+						<property name="Font.Charset" vt="Ident">ANSI_CHARSET</property>
+						<property name="Font.Color" vt="Ident">clWindowText</property>
+						<property name="Font.Height" vt="Int8">-12</property>
+						<property name="Font.Name" vt="String">Lucida Console</property>
+						<property name="Font.Style" vt="Set"/>
+						<property name="ParentFont" vt="False">False</property>
+						<property name="TabOrder" vt="Int8">5</property>
+						<property name="HaveVariable" vt="False">False</property>
+						<property name="CtrlStyle" vt="Int32">1342308608</property>
+						<property name="CtrlExStyle" vt="Int8">0</property>
+						<property name="Resizing" vt="Set"/>
+					</properties>
+					<components/>
+				</object>
+				<object type="TAPic" name="AboutPic2">
+					<properties>
+						<property name="Left" vt="Int8">8</property>
+						<property name="Top" vt="Int16">230</property>
+						<property name="Width" vt="Int8">43</property>
+						<property name="Height" vt="Int8">15</property>
+						<property name="CtrlStyle" vt="Int32">1342308622</property>
+						<property name="CtrlExStyle" vt="Int8">0</property>
+						<property name="PicturePath" vt="String">D:\studio0\Autoit\Corgi2\Icons\corgi.bmp</property>
+						<property name="TabOrder" vt="Int8">6</property>
+						<property name="Resizing" vt="Set">DockWidth, DockHeight</property>
+						<property name="Stretch" vt="Ident">sRealSize</property>
+					</properties>
+					<components/>
+				</object>
+			</components>
+		</object>
+		<object type="TAButton" name="AboutButton1">
+			<properties>
+				<property name="Left" vt="Int16">134</property>
+				<property name="Top" vt="Int16">392</property>
+				<property name="Width" vt="Int8">75</property>
+				<property name="Height" vt="Int8">25</property>
+				<property name="Caption" vt="String">&amp;OK</property>
+				<property name="TabOrder" vt="Int8">1</property>
+				<property name="Color" vt="Ident">clBtnFace</property>
+				<property name="CtrlStyle" vt="Int32">1342373888</property>
+				<property name="CtrlExStyle" vt="Int8">0</property>
+				<property name="Resizing" vt="Set">DockWidth, DockHeight</property>
+			</properties>
+			<components/>
+		</object>
+	</components>
+</object>

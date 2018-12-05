@@ -1,0 +1,15 @@
+﻿2009/5/31
+common.au3, MainformHandlers.au3, childproc.au3 :: rectify au3check's report error (most are "possible use of variables before definition")
+rioverde.au3, legacybios.aur ::  ctrl+tip button -> open this tip in explorer
+
+2009/5/26
+RioVerde.au3, LegacyBios.au3 :: set env var before checking path existence. (Since user can also uses EnvVar in tip variable)
+
+2009/5/22
+RioVerde.au3 :: RioVerde_Build() does not init $BuildTip
+
+2009/5/21
+Corgi.au3 :: _Exit() - clean up child tasks when the main program exists
+
+2009/5/19
+common.au3 :: IniUpdate() - invoke case-sensitive comparion for string variables.

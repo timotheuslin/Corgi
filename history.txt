@@ -1,0 +1,99 @@
+
+**** Revision 0.8.5c [2010/09/10]
+1. Incorrect button name when switching among different tasks.
+2. Keep 100 copies of log files and batch files in the @TempDir.
+3. Compiler selection when multiple Visual Studio versions are installed. Disable the corresponding variable in the "additional environment variables edit box".
+	to disable vs2005: set VS80COMNTOOLS=
+	to disable vs2008: set VS90COMNTOOLS=
+	to disable vs2010: set VS100COMNTOOLS=
+	
+	---- default: Corgi invokes the newest version.
+	---- for SCT2 build only.
+4. [Anna's Idea] on an X64 OS, invoke vsvars32.bat with parameter "amd64" to boost the compile speed.
+5. Revise the configuration page of Wild-Button.
+	
+
+**** Revision 0.8.5b [2010/07/7]
+1. multi-user version (The setting file now locates at $(APPDATA)/Corgi/corgi.ini)
+2. Revised Ctrl-D function: open the upper directory when a file does not exist.
+3. New Menu items: "Action"-> Build, Rebuild, Clean, Pause/Resume, Stop, Verbose, Script
+3.1 "Action"->"Script": display the integrated command batch file, without executing it. 
+	(This canceled "6. Generate a batch command with ALT key modifier" in 0.8.4b).
+3.2 "Action"->"Verbose": display execution time stamp and some internal debugging information.
+	(This canceled "7. Enabled Debug with SHIFT key modifier" in 0.8.4b)
+
+**** Revision 0.8.5a [2010/07/3]
+1. [Harrison's Idea] Ctrl-D to open a directory/file path at caret (without explicit text selection).
+
+**** Revision 0.8.4b [2010/07/2]
+1. integrate commands of every "commands bottons" to be a single batch file
+1.1 All temperal files (e.g. batch files) are created at $(TEMP)/Corgi
+2. Module list (MLIST) for quick module build
+3. Search upward (ALT-UpArrow)
+4. "additional environment variable" now accepts either "SET XXX=YYY" or "XXX=YYY"
+5. New icons for "build", "Rebuild", "Clean", "Pause/Resume" and "Stop" Botton.
+6. Generate a batch command with "ALT" key modifier
+7. Enabled Debug with "SHIFT" key modifier
+8. Configurable external editor. (In config.ini :: ExternalEditor.)
+8.1 Console: Edit selected path
+9  Improved "Sct2 Driver Build": Project Directory path + Module's base name
+
+**** Revision 0.8.3 [2010/05/19]
+1. Add "Sct2 Driver Build"
+
+**** Revision 0.8.2 [2009/10/29]
+1. Revised SCT2.0 directory crawling rule to locate PHMAKE.CFG and PHMAKE.EXE
+2. New Action: "Get Legacy Code"
+
+**** Revision 0.8.1 []
+1. Refined status bar for built time & miscellaneous messages
+2. Ctrl-MouseWheel to resize the console text size
+
+**** Revision 0.8 [2009/8/8]
+1. "Batch file" to instruct build process
+2. Support SCT2 and Benton2
+3. F7 function key (Start/Pause)
+4. Measure build time
+5. Search function in console
+
+**** Revision 0.7g [2009/6/30]
+1. execute selected (open folder or open a file with associated program)
+2. 15 customizable buttoms
+3. "Rebuild" button
+4. maxmized screen
+
+**** Revision 0.7e [2009/6/23]
+1. [Harrison's idea] Console -> "dump to notepad"
+
+**** Revision 0.7d [2009/6/23]
+1. Expand variable twice" to solve "mutually-depedent-variable" problem
+2. "No expanding environment variable when updating INI
+
+**** Revision 0.7c [2009/6/17]
+1. [Harrison's suggestion] on RioVerde Build: add a new Env variable: %BUILD_TIP0% . (%BUILD_TIP0% = %BUILD_TIP% - %EFI_SOURCE%)
+2. Pertaining change for Legacy BIOS: %OEM_TIP0% = %OEM_TIP% - %NUBIOS%
+
+**** Revision 0.7b [2009/6/5]
+1. unexpected behavior of "fire-and-forget" property
+
+**** Revision 0.7a [2009/6/1]
+1. ctrl+click to open tips
+
+**** Revision 0.7 [2009/5/22]
+1. RioVerde fails to build
+
+**** Revision 0.6 [2009/5/21]
+1. Clean up child tasks when the main program exists
+
+**** Revision 0.5 [2009/5/13]
+1. "Fire-and-forget" option in WildCard Button (WCB)
+2. Before the execution of WCB, relative environment variables will be set
+3. [Harrison's Idea] Change console's color/font according
+
+**** Revision 0.4 [2009/5/11]
+1. Preserve variable value like: %XYZ% (Prohibit ExpandEnvStrings when not in Run()/Envset(). i.e. AutoItSetOption("ExpandEnvStrings", 0))
+
+**** Revision 0.3 [2009/5/11]
+1. Add legcy BIOS task
+2. Add 7 configurable wildcard buttons with new configuration interface
+3. Drag-and-drop interface to import a config file

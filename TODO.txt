@@ -1,0 +1,195 @@
+[note]  Environment Variable "OS" is required for WINDDK
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+1   
+1.1 interaction with Console: send a key, send a string, with/without CR, save to a file, buffer size, write to file in parallel
+
+
+    +-----------------------------------------+
+    |           Send/Enter/Cancel |
+    +-----------------------------------------+
+    
+1.2 menu of console: input, save to a file, buffer size, write to file in parallel
+1.3     [Add][console][config] font/color/bg-color/word-wrap
+
+done - 2.1  form width should be resizable
+
+done -      3 Richedit limit of line number/text buffer
+
+done -      4.2 additional environment variable dialog
+done -      4.1 %Model%
+abandoned - 4.3 additional commands before/after nmake
+
+abandoned - 4.3.1 EC/KBC ROM checking!!!!!!!!!!!!!!!!!!!!!!!!!! $#@!#!@#!@#!@#!@
+            -> the first 64K bytes of normal BIOS cannot be all 0 or 0xFF!!
+    
+
+5.1     [Add][Config]Environment variable cleanup
+
+done -          5.2 store/restore Additional Environment variables into config file
+
+done - 0.8.4    5.3 [Add] Set Environment variable in batch file only (2009/8/7)
+        5.4 [Add] Setup relative Environment in batch file for a WCB
+
+done    -       5/9 6.1 drag-n-drop config file
+abandoned -         5/9 6.2 config is changed, save it?
+done    -       5/9 6.3 $GUI_DROPACCEPTED 
+    
+abandoned -         7 try to the "last working directory" when an external function exits
+
+done    -       8 [Harrison]take care of trailing "\" in directory input
+
+done    - 2009/8/9  9   [Add] status: display "start time", "elapsed time" -> "elpsed time"
+
+abandoned -     use wildbutton  10  [Add] "stripid", "pack"
+
+abandoned - 11  [Add] display Code label
+
+done    -       12  [Add] explore nubios_dir & oem_tip
+
+13.1    [Add] copy missed/required ML.EXE
+13.2    [Add] MASM version option
+
+abandon -   14.0    [getcode]
+abandon -   14.1    [getcode] get a single file/directory
+abandon -   14.2    [getcode] skip copy tools600, script.600
+
+16  [Add] [Harrison:] build_tip auto-complete
+done    -   2010/9/11   17  [Add] [Harrison:] 調整字體
+
+done    - 2009/8/7  18  [Change] batch build
+done    - 2010/6/22 18.2    "Create batch": Generate a specific batch for this build command
+
+19  [Add][Legacy Build][option] rebuild bb
+
+done    - 5/13      20  [Harrison2009/5/13] option for WCB: fire-and-forget, do not wait for the child process to terminate
+done    - 5/13      21  [Harrison2009/5/13] black-background/whitetext for console
+
+done    - 2009/8/12 22  [Add][Menu][1.0] "Save Current Setting"
+
+done    - 2009/8/11 23.0    [Add][1.0] Subclass context menu of Console
+done    - 2009/8/11 23.1    [Add][1.0][Harrison 2009/5/13] search function in console
+
+24  [Add] quick file locater
+25  [Add][2.0] integrate lucene
+
+26  [Add][Config] comments/decription of a config file
+
+done    -       27  [Change][ENV variable] %NUBIOS% should be expanded immediately in OEM_TIP or any other variable
+
+done    -       28  [Bug] clean/rebuild... buttons should also setup relative environment variables
+
+done    -       29  [Add] re-build button/function
+
+30  [Add][1.0] when target/working directory does not exist, ask "proceed" & "browse" & "Cancel"
+
+abandoned   -   31  [Add] set Child process's priority
+
+done    - 2009/8/7  32  [Add] SCT 2.0 support
+
+done    - 2009/8/7  33  [Add] Benton2 support
+
+done    - 2009/8/8  34  [BUG] When started, F7 hotkey would become pause key
+
+done    - 2009/8/8  35  [Add] When an error occurs (errorlevel != 0), stop the build process (for build-with-multi-commands)
+
+              
+done    - 2010/6/22 36  [Add] SCT2 build a single component/driver
+
+36.1    [Add] RioVerde build a single component/driver
+
+done    - 2010/6/22 37  [Add][1.0] "Additional Environment Variable" should accept 2 forms of command-lines: 1) "VARIABLE=VALUE" and 2) "SET VARIABLE=VALUE"
+
+38  [Add][Config][1.0]  Generic setting interface for every kind of build
+
+39  [Improvement][About][1.0]   Refined "About" dialog box
+
+done    - 2010/6/22 40  [Improvement][1.0]  Integrated Batch file to include 1) environment variable setting 2) pre-build commands 3) build process
+
+41  [Add][1.0]  console: word wrap
+
+done    - 2010/7/?  invoked "taskkill.exe" simply   - 42    [Improvement][1.0]  reilability of kill-child-process-tree
+
+done    - 2009/8/11 43  [BUG][1.0]  localization of hotkeys
+
+done    - 2009/8/13 44  [Add][console]  Ctrl-scroll to enlarge/shrink font size
+
+45  [Improvement][console][1.0] reduce flicker when changing console's font size
+
+46  [Improvement][Console][Find] following dialog:
+    
+    +------------------------------------------------+
+    | Find What: XXXX              Find Next |
+    |                                |
+    | x Match whole word only   direction  Cancel    |
+    | x Match case           Up  Down            |
+    +------------------------------------------------+
+
+abandoned - 47  [Add][Main] support AwardCore, Embedded BIOS
+
+48  [Add][Console] Ctrl+Click for Console's config dialog
+
+done    - 2010/7/1  49  [Add][Console][Find][1.0] "find previous"
+
+done    - 2010/6/22 50  [Add][Console] "Edit",  "Specify an external editor"
+50.1    [Add][Console] "Edit",  "Specify an external editor" in a config menu
+
+51  [Add][Console] "Monitor", alert/action when an expected message occurs
+52  [Bug][Console] Gray selected-area-relative-items  when no text is hi-lighted
+53  [Add][Console] "Quick run", to input a command directly in console or a dialog box, and run this command in console
+
+done - [5:31 PM 1/7/2014] 54    [Add][Console] recognize/parse some special tty commands: e.g cls/clear, pause
+
+55  [Add][Command][Benton2] when "build", ask a full build or partial build
+
+56  [Add][Config] configuration interface of Build/Rebuild/Cleanup/Pause/Stop
+
+done    - 57    [Add]Status Bar
+
+58  [Add]Scratch pad of a project
+
+overridden by #65   - 59    [Add]Save/Restore console output
+
+60  [Add]Debug console
+
+Done    2010/7/3    61  [Harrision][Add] Ctrl-D to open file/directory at console's caret position
+
+62  [Simon][Add] botton to select all eligible project-directories
+
+done    -   2010/9/?    63  [Add] Additional menu items: "verbose", "script view", "Wild Buttons"
+
+64  [Add][Simon][7/28/2010 9:30:44 PM]
+    1. corgi 要能帶參數
+       1.1 %1=路徑
+    
+    2. 路徑要處理,
+       2.1 找到 root folder
+          ex: legacy ==> nubios
+              sct2 ==> efi_source
+    
+    3. search project.def 並紀錄下所有路徑. 做成下拉選單
+    
+       紀錄上一次使用的build tip.
+
+
+
+done    -   2009/9/9    65  [Add][8/24/2010 11:50:58 PM]
+            [done][9/12/2010 12:12:12 AM]save the console text to a log when 1) corgi exits, 2) console is being cleared.
+        
+65.1    show a console text log's last update time in the status bar
+
+66  [Add][8/24/2010 11:52:43 PM]
+    "button command queue":
+        1) user can press a sequential of buttons to queue a sequential command list
+        2) user can edit a script to run the buttons
+
+67  [Add][8/25/2010 12:29:23 AM]
+    SVN get!!!
+
+68  [add][2010/9/1][Anna's idea]
+    Shell extension to build SCT2 every where!
+
+done - [1:50 PM 1/8/2014] - 69 [5:34 PM 1/7/2014] add start/finish time into console.
+
+70 [9:10 AM 1/8/2014] reload configuration

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<object type="TAForm" name="FormMlist">
+	<properties>
+		<property name="Left" vt="Int16">364</property>
+		<property name="Top" vt="Int8">122</property>
+		<property name="Width" vt="Int16">404</property>
+		<property name="Height" vt="Int16">495</property>
+		<property name="Caption" vt="String">Select MLIST Entry</property>
+		<property name="Color" vt="Ident">clBtnFace</property>
+		<property name="Font.Charset" vt="Ident">DEFAULT_CHARSET</property>
+		<property name="Font.Color" vt="Ident">clWindowText</property>
+		<property name="Font.Height" vt="Int8">-11</property>
+		<property name="Font.Name" vt="String">MS Sans Serif</property>
+		<property name="Font.Style" vt="Set"/>
+		<property name="OldCreateOrder" vt="False">False</property>
+		<property name="Visible" vt="True">True</property>
+		<property name="Style" vt="Int32">-1798701056</property>
+		<property name="ExStyle" vt="Int16">256</property>
+		<property name="Version" vt="String">1.04</property>
+		<property name="FormOptOnEvent" vt="False">False</property>
+		<property name="FormOptExpVars" vt="False">False</property>
+		<property name="FormOptPopulate" vt="False">False</property>
+		<property name="FormOptVarsForSet" vt="False">False</property>
+		<property name="FormOptIndentChar" vt="Int8">0</property>
+		<property name="FormOptIndentCount" vt="Int8">1</property>
+		<property name="FormOptIndentInit" vt="Int8">0</property>
+		<property name="FormOptVarScope" vt="Int8">0</property>
+		<property name="PixelsPerInch" vt="Int8">96</property>
+		<property name="TextHeight" vt="Int8">13</property>
+	</properties>
+	<components>
+		<object type="TALabel" name="Label1">
+			<properties>
+				<property name="Left" vt="Int8">4</property>
+				<property name="Top" vt="Int8">8</property>
+				<property name="Width" vt="Int8">36</property>
+				<property name="Height" vt="Int8">17</property>
+				<property name="Caption" vt="String">Label1</property>
+				<property name="TabOrder" vt="Int8">0</property>
+				<property name="HaveVariable" vt="False">False</property>
+				<property name="CtrlStyle" vt="Int32">1342308608</property>
+				<property name="CtrlExStyle" vt="Int8">0</property>
+				<property name="Resizing" vt="Set"/>
+			</properties>
+			<components/>
+		</object>
+		<object type="TAListView" name="ListView1">
+			<properties>
+				<property name="Left" vt="Int8">0</property>
+				<property name="Top" vt="Int8">32</property>
+				<property name="Width" vt="Int16">250</property>
+				<property name="Height" vt="Int16">406</property>
+				<property name="CtrlStyle" vt="Int32">1342373901</property>
+				<property name="CtrlExStyle" vt="Int16">512</property>
+				<property name="Resizing" vt="Set"/>
+				<property name="Items.Data" vt="Binary">
+					<bin>6600000002000000FFFFFFFFFFFFFFFFFFFFFFFF020000000000000004717765</bin>
+					<bin>720871657772717765720A77717277657271776572FFFFFFFFFFFFFFFFFFFFFF</bin>
+					<bin>FF0200000000000000063232323232320532333333330732343434343434FFFF</bin>
+					<bin>FFFFFFFFFFFF</bin>
+				</property>
+				<property name="Columns" vt="Collection">
+					<collection>
+						<item/>
+						<item/>
+						<item/>
+						<item/>
+					</collection>
+				</property>
+			</properties>
+			<components/>
+		</object>
+		<object type="TAButton" name="Button1">
+			<properties>
+				<property name="Left" vt="Int16">168</property>
+				<property name="Top" vt="Int8">4</property>
+				<property name="Width" vt="Int8">75</property>
+				<property name="Height" vt="Int8">25</property>
+				<property name="Caption" vt="String">OK</property>
+				<property name="TabOrder" vt="Int8">2</property>
+				<property name="Color" vt="Ident">clBtnFace</property>
+				<property name="CtrlStyle" vt="Int32">1342373888</property>
+				<property name="CtrlExStyle" vt="Int8">0</property>
+				<property name="Resizing" vt="Set">DockWidth, DockHeight</property>
+			</properties>
+			<components/>
+		</object>
+	</components>
+</object>

@@ -1,0 +1,19 @@
+corgi.au3:
+	1 GlobalTaskSectionName[]
+		1.1 Enum $Enum_GlobalTask_RioVerde=0, $Enum_GlobalTask_Sct2=1, $Enum_GlobalTask_Benton2=2, $Enum_GlobalTask_Legacy=3, $Enum_GlobalTask_GetLegacy=4
+		1.2 GUICtrlSetData($ComboTask, "Rio Verde - Build|SCT2 - Build|Benton2 - Build|Legacy - Build|Legacy - Get")
+	2 MainForm_Init
+	3 IniUpdateAll
+	4 ButtonStartFunc
+	...
+
+*** "XXX" is the new task's name
+
+XXX.au3:
+	XXX_Init()
+	XXX_IniUpdate()
+	XXX_Build()
+	XXX_Rebuild()
+	XXX_SetVariables()
+	GlobalTaskSectionName[?]
+	
