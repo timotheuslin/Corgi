@@ -38,6 +38,7 @@ Func TRunningState($Running)
         GUICtrlSetState($ButtonStop,    $GUI_ENABLE)
 
         GUICtrlSetState($ComboTask, $GUI_DISABLE)
+        GUICtrlSetState($ComboToolChain, $GUI_DISABLE)
 
         WildButton_Enable(False)
         StartElapsedTimer()
@@ -59,6 +60,7 @@ Func TRunningState($Running)
         GUICtrlSetState($ButtonStop,    $GUI_DISABLE)
 
         GUICtrlSetState($ComboTask, $GUI_ENABLE)
+        GUICtrlSetState($ComboToolChain, $GUI_ENABLE)
 
         WildButton_Enable(True)
         StatusBar_SetText("Idle", 2)
@@ -125,7 +127,7 @@ Func DumpToNotepad()
             ControlSend("[CLASS:Notepad]", "", "Edit1", "^V")
         EndIf
     Else
-        Msgbox(48, "Ouch", "Fail to launch editor !")
+        Msgbox(48, "Error", "Fail to launch editor !")
     EndIf
 EndFunc
 

@@ -3,7 +3,7 @@
 #AutoIt3Wrapper_Outfile=Corgi.exe
 #AutoIt3Wrapper_Compression=4
 #AutoIt3Wrapper_UseUpx=y
-#AutoIt3Wrapper_Res_Fileversion=0.9.0.0
+#AutoIt3Wrapper_Res_Fileversion=0.9.0.1
 #AutoIt3Wrapper_Res_Language=1033
 #AutoIt3Wrapper_Res_Icon_Add=Resources\Burn.ico
 #AutoIt3Wrapper_Res_Icon_Add=Resources\Refresh.ico
@@ -39,7 +39,7 @@ Opt("TrayIconHide", 1) ;0=show, 1=hide tray icon
 
 AutoItSetOption("ExpandEnvStrings", 0)
 
-Global $CorgiRevision = "0.9.0.0"
+Global $CorgiRevision = "0.9.0.1"
 Global $MainForm = 0
 Global $GlobalPauseFlag = False
 Global $DebugMode = False
@@ -200,7 +200,7 @@ Func __ImportConfigFile($INI)
 
     Local $TaskId = IniRead($INI, $GlobalSectionString, $TaskIdString, -1)
     If $TaskId == -1 Then
-        MsgBox(48, "Ouch", "Not a Config File: " & $INI)
+        MsgBox(48, "Error", "Not a Config File: " & $INI)
         Return
     EndIf
 

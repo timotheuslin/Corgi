@@ -77,29 +77,36 @@ Func SCT2_Init($INI=$GlobalIni)
 EndFunc
 
 Func SCT2_SetToolChain()
-    Local $vspath = ""
-    Local $ToolChainTag
     Local $ToolChainId = _GUICtrlComboBox_GetCurSel($ComboToolChain)
+    Local $ToolChainTag
     _GUICtrlComboBox_GetLBText($ComboToolChain, $ToolChainId, $ToolChainTag)
+    Local $VsPath = ""
+    Local $VsBat = "vsvars32.bat"
     Switch $ToolChainTag
         Case "VS2008x86"
-            $vspath = EnvGet("VS90COMNTOOLS")
+            $VsPath = "VS90COMNTOOLS"
         Case "VS2010x86"
-            $vspath = EnvGet("VS100COMNTOOLS")
+            $VsPath = "VS100COMNTOOLS"
         Case "VS2012x86"
-            $vspath = EnvGet("VS110COMNTOOLS")
+            $VsPath = "VS110COMNTOOLS"
         Case "VS2013x86"
-            $vspath = EnvGet("VS120COMNTOOLS")
+            $VsPath = "VS120COMNTOOLS"
         Case "VS2015x86"
-            $vspath = EnvGet("VS140COMNTOOLS")
+            $VsPath = "VS140COMNTOOLS"
         Case "VS2017"
-            $vspath = EnvGet("VS150COMNTOOLS")
+            $VsPath = "VS150COMNTOOLS"
+            $VsBat = "VsDevCmd.bat"
     EndSwitch
-    AppendExecCommand(':: Toolchain == ' & $ToolChainTag )
-    If $vspath <> "" Then
-        AppendExecCommand('CALL "' & $vspath & 'vsvars32.bat"' )
+    AppendExecCommand('ECHO Tool Chain: ' & $ToolChainTag )
+    If $VsPath <> "" Then
+        Local $VsPathX = '%' & $VsPath & '%' & $VsBat
+        AppendExecCommand('IF EXIST "' & $VsPathX & '" (' )
+        AppendExecCommand('    CALL "' & $VsPathX & '"' )
+        AppendExecCommand(') ELSE (' )
+        AppendExecCommand('    ECHO ERROR: Invalid Tool Chain: ' & $ToolChainTag)
+        AppendExecCommand('    EXIT /B 1')
+        AppendExecCommand(')')
     EndIf
-
 EndFunc
 
 Global $SCT4 = False
@@ -144,7 +151,7 @@ Func SCT2_SetVariables($WarningOnMissedPath=False)
     EndIf
 
     If $WarningOnMissedPath Then
-        If Not FileExists($Sct2ProjectDirectory) Then MsgBox(48, "Ouch", "Project Directory : " & $Sct2ProjectDirectory &" does not exist!")
+        If Not FileExists($Sct2ProjectDirectory) Then MsgBox(48, "Error", "Project Directory : " & $Sct2ProjectDirectory &" does not exist!")
     EndIf
 
     SCT2_SetToolChain()
@@ -181,14 +188,14 @@ Func SCT2_Build($Arg="", $ExtParams="")
         Local $Sct2BuildCmd_Path1   = $Sct2Root & "\Tools"
         Local $Sct2BuildCmd_Path2   = $Sct2Root & "\Phoenix\Tools"
 
-        Local $Sct2BuildCmd0   = $Sct2BuildCmd_Path0 & "\PhMake.BAT"
+        Local $Sct2BuildCmd0   = $Sct2BuildCmd_Path0 & "\PhMake.BAT"        ; SCT4
         Local $Sct2BuildCmd0_0 = "CALL " & $Sct2BuildCmd0
         Local $Sct2BuildCmd1   = $Sct2BuildCmd_Path1 & "\PHMAKE.EXE"
         Local $Sct2BuildCmd2   = $Sct2BuildCmd_Path2 & "\PHMAKE.EXE"
 
         $Sct2BuildCmd = ""
         If FileExists($Sct2BuildCmd0) Then
-            $Sct2BuildCmd   = $Sct2BuildCmd0_0
+            $Sct2BuildCmd   = $Sct2BuildCmd0_0              ; SCT4
         ElseIf FileExists($Sct2BuildCmd1) Then
             $Sct2BuildCmd   = $Sct2BuildCmd1
         ElseIf FileExists($Sct2BuildCmd2) Then
@@ -259,7 +266,7 @@ Func Button4SetSct2ProjectDirectory()
         Return
     EndIf
 
-    $EfiSource = FileSelectFolder("Select SCT2 Project Directory:", "", 2+4, $EfiSource)
+    $EfiSource = FileSelectFolder("Select SCT Project Directory:", "", 2+4, $EfiSource)
     If $EfiSource <> "" Then
         _GUICtrlEdit_SetText($Input4, $EfiSource)
     EndIf
@@ -276,12 +283,12 @@ Func Button5SetSct2Mlist()
     Local $Mlist = $BuildDir & "\module.list"
 
     If NOT FileExists($BuildDir) Then
-        MsgBox(48, "Ouch", "Build Directory: " & $Builddir & " does not exist!")
+        MsgBox(48, "Error", "Build Directory: " & $Builddir & " does not exist!")
         Return
     EndIf
 
     If NOT FileExists($Mlist) Then
-        MsgBox(48, "Ouch", "Module List: " & $Mlist & " does not exist!")
+        MsgBox(48, "Error", "Module List: " & $Mlist & " does not exist!")
         return
     EndIf
 
