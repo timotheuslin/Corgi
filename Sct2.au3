@@ -29,6 +29,7 @@ Func SCT2_Init($INI=$GlobalIni)
     _GUICtrlButton_SetText($Button1, $PhmakeOptions)
     _GUICtrlButton_SetText($Button4, "ProjectDir")
     _GUICtrlButton_SetText($Button5, $Sct2MlistString1)
+    GUICtrlSetImage($Button1,   @ScriptFullPath, -11, 0)
 
     GUICtrlSetState($Input1, $GUI_ENABLE)
     GUICtrlSetState($Input2, $GUI_DISABLE)
@@ -81,27 +82,38 @@ Func SCT2_SetToolChain()
     Local $ToolChainTag
     _GUICtrlComboBox_GetLBText($ComboToolChain, $ToolChainId, $ToolChainTag)
     Local $VsPath = ""
-    Local $VsBat = "vsvars32.bat"
+    Local $VsBat = ""
+    Local $VsBatArgs = ""
     Switch $ToolChainTag
         Case "VS2008x86"
             $VsPath = "VS90COMNTOOLS"
+            $VsBat = "vsvars32.bat"
+            $VsBatArgs = "x86"
         Case "VS2010x86"
             $VsPath = "VS100COMNTOOLS"
+            $VsBat = "vsvars32.bat"
+            $VsBatArgs = "x86"
         Case "VS2012x86"
             $VsPath = "VS110COMNTOOLS"
+            $VsBat = "vsvars32.bat"
+            $VsBatArgs = "x86"
         Case "VS2013x86"
             $VsPath = "VS120COMNTOOLS"
+            $VsBat = "vsvars32.bat"
+            $VsBatArgs = "x86"
         Case "VS2015x86"
             $VsPath = "VS140COMNTOOLS"
+            $VsBat = "vsvars32.bat"
+            $VsBatArgs = "x86"
         Case "VS2017"
             $VsPath = "VS150COMNTOOLS"
             $VsBat = "VsDevCmd.bat"
     EndSwitch
     AppendExecCommand('ECHO Tool Chain: ' & $ToolChainTag )
     If $VsPath <> "" Then
-        Local $VsPathX = '%' & $VsPath & '%' & $VsBat
-        AppendExecCommand('IF EXIST "' & $VsPathX & '" (' )
-        AppendExecCommand('    CALL "' & $VsPathX & '"' )
+        Local $VsPathX = '"%' & $VsPath & '%' & $VsBat & '"'
+        AppendExecCommand('IF EXIST ' & $VsPathX & ' (' )
+        AppendExecCommand('    CALL ' & $VsPathX & ' ' & $VsBatArgs)
         AppendExecCommand(') ELSE (' )
         AppendExecCommand('    ECHO ERROR: Invalid Tool Chain: ' & $ToolChainTag)
         AppendExecCommand('    EXIT /B 1')

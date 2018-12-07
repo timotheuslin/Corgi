@@ -94,9 +94,13 @@ $GlobalTaskSectionName[$Enum_GlobalTask_Benton2] = "Benton2 - Build"
 $GlobalTaskSectionName[$Enum_GlobalTask_Legacy] = "Legacy - Build"
 $GlobalTaskSectionName[$Enum_GlobalTask_GetLegacy] = "Legacy - Get"
 
-Const $CorgiEditorDefault = "c:\windows\system32\notepad.exe"
+Const $CorgiEditorDefault = "C:\Program Files\Notepad++\notepad++.exe"
+Const $CorgiEditorDefaultFallbacks = [ _
+    "C:\Program Files (x86)\Notepad++\notepad++.exe", _
+    "C:\Program Files\Notepad++\notepad++.exe", _
+    "c:\windows\system32\notepad.exe"]
 Global $Global_CorgiEditor = $CorgiEditorDefault
-Global $Global_ToolChain = "ToolChain"
+Global $Global_ToolChain_Str = "ToolChain"
 Global $Global_ToolChains_Id = 0
 
 ; Ref. UDK's tools_def.template/tools_def.txt

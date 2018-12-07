@@ -11,6 +11,7 @@
 #AutoIt3Wrapper_Res_Icon_Add=Resources\Pause.ico
 #AutoIt3Wrapper_Res_Icon_Add=Resources\Play.ico
 #AutoIt3Wrapper_Res_Icon_Add=Resources\Cancel.ico
+#AutoIt3Wrapper_Res_Icon_Add=Resources\Burn16x16.ico
 #AutoIt3Wrapper_Res_File_Add=Resources\Welsh_Corgi_256x256.jpg, RT_RCDATA, Welsh_Corgi
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 
@@ -232,6 +233,7 @@ Func MainForm_Init($INI = $GlobalIni, $TaskId = -1)
     GUICtrlSetStyle($ButtonStop, BitOR($BS_ICON, $BS_FLAT, $WS_GROUP))
     GUICtrlSetStyle($ButtonCleanUp, BitOR($BS_ICON, $BS_FLAT, $WS_GROUP))
     GUICtrlSetStyle($ButtonRebuild, BitOR($BS_ICON, $BS_FLAT, $WS_GROUP))
+    GUICtrlSetStyle($Button1, BitOR($BS_FLAT, $WS_GROUP))
 
     Local $ComboToolChain_List = $Global_ToolChains[0]
     For $i = 1 To UBound($Global_ToolChains) - 1
@@ -244,10 +246,14 @@ Func MainForm_Init($INI = $GlobalIni, $TaskId = -1)
     EndIf
 
     $Global_CorgiEditor = IniRead($INI, $GlobalSectionString, $ExternalEditorString, $CorgiEditorDefault)
+    For $i = 1 To UBound($CorgiEditorDefaultFallbacks) - 1
+        If FileExists($Global_CorgiEditor) Then ExitLoop
+        $Global_CorgiEditor = $CorgiEditorDefaultFallbacks[$i]
+    Next
     If Not FileExists($Global_CorgiEditor) Then
         $Global_CorgiEditor = $CorgiEditorDefault
     EndIf
-    $Global_ToolChains_Id = IniRead($INI, $GlobalSectionString, $Global_ToolChains, 0)
+    $Global_ToolChains_Id = IniRead($INI, $GlobalSectionString, $Global_ToolChain_Str, 0)
 
     BW_INIT($INI)
     BW_Load($INI, $TaskId)
@@ -277,7 +283,7 @@ Func IniUpdateAll($INI = $GlobalIni)
     IniUpdate($INI, $GlobalSectionString, $TaskIdString, $GlobalTaskId)
     IniUpdate($INI, $GlobalSectionString, $ExternalEditorString, $Global_CorgiEditor)
     $Global_ToolChains_Id = _GUICtrlComboBox_GetCurSel($ComboToolChain)
-    IniUpdate($INI, $GlobalSectionString, $Global_ToolChains, $Global_ToolChains_Id)
+    IniUpdate($INI, $GlobalSectionString, $Global_ToolChain_Str, $Global_ToolChains_Id)
 
 EndFunc   ;==>IniUpdateAll
 
@@ -388,9 +394,9 @@ EndFunc   ;==>ButtonPauseFunc
 Func ButtonStopFunc()
     TConsoleWrite(@CRLF & $ConsoleCancelString & $CRLFx2)
     CoProcess_Stop()
-    StatusBar_SetText("Idle", 2)
     Console_SetFocus()
     SetButtonPauseState(True)
+    StatusBar_SetText("Idle", 2)
 EndFunc   ;==>ButtonStopFunc
 
 ;
