@@ -3,7 +3,7 @@
 	<properties>
 		<property name="Left" vt="Int16">433</property>
 		<property name="Top" vt="Int16">193</property>
-		<property name="Width" vt="Int16">230</property>
+		<property name="Width" vt="Int16">234</property>
 		<property name="Height" vt="Int16">492</property>
 		<property name="Caption" vt="String">About Corgi</property>
 		<property name="Color" vt="Ident">clWhite</property>
@@ -34,7 +34,7 @@
 			<properties>
 				<property name="Left" vt="Int8">4</property>
 				<property name="Top" vt="Int8">0</property>
-				<property name="Width" vt="Int16">205</property>
+				<property name="Width" vt="Int16">210</property>
 				<property name="Height" vt="Int16">377</property>
 				<property name="CtrlStyle" vt="Int32">1342308359</property>
 				<property name="CtrlExStyle" vt="Int8">0</property>
@@ -60,7 +60,7 @@
 				<object type="TALabel" name="AboutLabel2">
 					<properties>
 						<property name="Left" vt="Int8">8</property>
-						<property name="Top" vt="Int16">260</property>
+						<property name="Top" vt="Int16">252</property>
 						<property name="Width" vt="Int16">179</property>
 						<property name="Height" vt="Int8">16</property>
 						<property name="Caption" vt="String">Original Idea: Simon Yang</property>
@@ -81,7 +81,7 @@
 				<object type="TALabel" name="AboutLabel3">
 					<properties>
 						<property name="Left" vt="Int8">8</property>
-						<property name="Top" vt="Int16">288</property>
+						<property name="Top" vt="Int16">272</property>
 						<property name="Width" vt="Int16">165</property>
 						<property name="Height" vt="Int8">16</property>
 						<property name="Caption" vt="String">GUI Design: Timothy Lin</property>
@@ -102,9 +102,9 @@
 				<object type="TALabel" name="AboutLabel4">
 					<properties>
 						<property name="Left" vt="Int8">8</property>
-						<property name="Top" vt="Int16">316</property>
+						<property name="Top" vt="Int16">292</property>
 						<property name="Width" vt="Int16">186</property>
-						<property name="Height" vt="Int8">16</property>
+						<property name="Height" vt="Int8">56</property>
 						<property name="Caption" vt="String">Consultant: Harrison Hsieh</property>
 						<property name="Font.Charset" vt="Ident">ANSI_CHARSET</property>
 						<property name="Font.Color" vt="Ident">clWindowText</property>
@@ -123,7 +123,7 @@
 				<object type="TALabel" name="AboutLabel5">
 					<properties>
 						<property name="Left" vt="Int8">8</property>
-						<property name="Top" vt="Int16">344</property>
+						<property name="Top" vt="Int16">352</property>
 						<property name="Width" vt="Int16">130</property>
 						<property name="Height" vt="Int8">16</property>
 						<property name="Caption" vt="String">@Phoenix, May/2009</property>
@@ -145,9 +145,9 @@
 					<properties>
 						<property name="Left" vt="Int8">58</property>
 						<property name="Top" vt="Int16">232</property>
-						<property name="Width" vt="Int8">116</property>
+						<property name="Width" vt="Int8">123</property>
 						<property name="Height" vt="Int8">16</property>
-						<property name="Caption" vt="String">- Version 0.8.6a</property>
+						<property name="Caption" vt="String">- Version 0.9.0.1</property>
 						<property name="Font.Charset" vt="Ident">ANSI_CHARSET</property>
 						<property name="Font.Color" vt="Ident">clWindowText</property>
 						<property name="Font.Height" vt="Int8">-12</property>
