@@ -278,7 +278,7 @@ Func BWC_Button5Func()
 
 	Local $WCB_WorkingFolder= Path_TrimTrailingSlash(StringStripWS(GUICtrlRead($BWC_Input3), 1+2))
 
-	$WCB_WorkingFolder = FileSelectFolder("Select A Working Directory:", "", 2+4, $WCB_WorkingFolder)
+	$WCB_WorkingFolder = FileSelectFolder("Select A Working Directory:", $WCB_WorkingFolder, 2+4, $WCB_WorkingFolder)
 	If $WCB_WorkingFolder <> "" Then
 		_GUICtrlEdit_SetText($BWC_Input3, $WCB_WorkingFolder)
 	EndIf

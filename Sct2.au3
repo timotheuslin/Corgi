@@ -278,7 +278,7 @@ Func Button4SetSct2ProjectDirectory()
         Return
     EndIf
 
-    $EfiSource = FileSelectFolder("Select SCT Project Directory:", "", 2+4, $EfiSource)
+    $EfiSource = FileSelectFolder("Select SCT Project Directory:", $EfiSource, 2+4, $EfiSource)
     If $EfiSource <> "" Then
         _GUICtrlEdit_SetText($Input4, $EfiSource)
     EndIf
