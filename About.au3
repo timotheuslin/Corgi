@@ -19,7 +19,7 @@
 #include "Resources.au3"
 
 #Region ### START Koda GUI section ### Form=about.kxf
-$AboutForm1 = GUICreate("About Corgi", 220, 455, 433, 193, BitOR($WS_SIZEBOX,$WS_THICKFRAME,$WS_SYSMENU))
+$AboutForm1 = GUICreate("About Corgi", 220, 455, 433, 193, 0)
 GUISetBkColor(0xFFFFFF)
 $AboutGroup1 = GUICtrlCreateGroup("", 4, 0, 210, 377)
 $AboutPic1 = GUICtrlCreatePic("", 16, 16, 182, 200)
