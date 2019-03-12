@@ -104,7 +104,7 @@ Func SCT2_SetToolChain()
         Case "VS2015x86"
             $VsPath = "VS140COMNTOOLS"
             $VsBat = "vsvars32.bat"
-            ;$VsBatArgs = "x86"
+            $VsBatArgs = "x86"
         Case "VS2017"
             $VsPath = "VS150COMNTOOLS"
             $VsBat = "VsDevCmd.bat"
