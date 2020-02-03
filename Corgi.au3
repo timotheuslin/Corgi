@@ -3,7 +3,7 @@
 #AutoIt3Wrapper_Outfile=Corgi.exe
 #AutoIt3Wrapper_Compression=4
 #AutoIt3Wrapper_UseUpx=y
-#AutoIt3Wrapper_Res_Fileversion=0.9.0.2
+#AutoIt3Wrapper_Res_Fileversion=0.9.0.3
 #AutoIt3Wrapper_Res_Language=1033
 #AutoIt3Wrapper_Res_Icon_Add=Resources\Burn.ico
 #AutoIt3Wrapper_Res_Icon_Add=Resources\Refresh.ico
@@ -40,7 +40,7 @@ Opt("TrayIconHide", 1) ;0=show, 1=hide tray icon
 
 AutoItSetOption("ExpandEnvStrings", 0)
 
-Global $CorgiRevision = "0.9.0.2"
+Global $CorgiRevision = "0.9.0.3"
 Global $MainForm = 0
 Global $GlobalPauseFlag = False
 Global $DebugMode = False

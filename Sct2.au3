@@ -108,6 +108,9 @@ Func SCT2_SetToolChain()
         Case "VS2017"
             $VsPath = "VS150COMNTOOLS"
             $VsBat = "VsDevCmd.bat"
+        Case "VS2019"
+            $VsPath = "VS160COMNTOOLS"
+            $VsBat = "VsDevCmd.bat"
     EndSwitch
     AppendExecCommand('ECHO Tool Chain: ' & $ToolChainTag )
     If $VsPath <> "" Then

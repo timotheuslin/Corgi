@@ -111,8 +111,10 @@ Global $Global_ToolChains[] = [ _
     'VS2012x86', _
     'VS2013x86', _
     'VS2015x86', _
-    'VS2017', _
+    'VS2017(x86)', _
+    'VS2019(x86)', _
     'CLANG38', _
+    'CLANG9', _
     'GCC5' _
     ]
 
